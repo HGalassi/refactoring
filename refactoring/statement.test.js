@@ -1,30 +1,8 @@
 const { test, expect } = require('@jest/globals');
 const statement = require('./statement');
 
-const plays = {
-  "hamlet" : {"name" : "Hamlet", "type": "tragedy"},
-  "as-like" : {"name" : "As You Like It", "type": "comedy"},
-  "othello" : {"name" : "Othello", "type": "tragedy"}
-};
-
-const invoices = 
-  {
-      "customer": "BigCo",
-      "performances": [
-          { 
-              "playID": "hamlet",
-              "audience": 55
-          },
-          {
-              "playID" : "as-like",
-              "audience": 35
-          },
-          {
-              "playID": "othello",
-              "audience": 40
-          }
-      ]
-  };
+import plays from './plays.mjs';
+import invoices from './invoices.mjs';
 
 test('Teste statement',()=>{
   expect(statement(invoices,plays)).toContain("Statement for BigCo")
